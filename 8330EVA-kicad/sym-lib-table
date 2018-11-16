@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name 8330_EVA-extra)(type Legacy)(uri ${KIPRJMOD}/8330_EVA-extra.lib)(options "")(descr ""))
+)
