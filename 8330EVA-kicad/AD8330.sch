@@ -288,11 +288,11 @@ Connection ~ 6050 2800
 Wire Wire Line
 	6050 2800 5800 2800
 Text Label 7550 1350 0    50   ~ 0
-VPSO
+VPOS
 Wire Wire Line
 	7550 1350 7200 1350
 Text Label 7250 1650 0    50   ~ 0
-VPOS
+VPSO
 Wire Wire Line
 	7250 1650 7200 1650
 Connection ~ 7200 1650
@@ -451,11 +451,9 @@ Wire Wire Line
 Text HLabel 1350 1650 0    50   Input ~ 0
 SignalIN
 Wire Wire Line
-	1350 1800 2250 1800
+	1350 1800 2100 1800
 Wire Wire Line
 	1350 1650 2250 1650
-Wire Wire Line
-	2100 1950 2100 800 
 Wire Wire Line
 	2100 800  5300 800 
 Connection ~ 2100 1950
@@ -6629,4 +6627,9 @@ EndData
 $EndBitmap
 Wire Wire Line
 	9700 1800 9900 1800
+Wire Wire Line
+	2100 800  2100 1800
+Connection ~ 2100 1800
+Wire Wire Line
+	2100 1800 2250 1800
 $EndSCHEMATC
