@@ -291,7 +291,7 @@ Wire Wire Line
 	4450 5600 4450 5850
 Connection ~ 4450 5850
 Wire Wire Line
-	4450 5850 5200 5850
+	4450 5850 4700 5850
 NoConn ~ 4700 4350
 NoConn ~ 4700 4450
 NoConn ~ 4700 4550
@@ -729,5 +729,9 @@ Wire Wire Line
 Connection ~ 2550 6500
 Wire Wire Line
 	2550 6500 2250 6500
-NoConn ~ 4700 5350
+Wire Wire Line
+	4700 5350 4700 5850
+Connection ~ 4700 5850
+Wire Wire Line
+	4700 5850 5200 5850
 $EndSCHEMATC
