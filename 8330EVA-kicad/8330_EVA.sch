@@ -44,10 +44,10 @@ F8 "GROUND" I L 5850 4200 50
 F9 "SignalIN" I L 5850 3850 50 
 $EndSheet
 $Comp
-L Connector:Conn_Coaxial J?
+L Connector:Conn_Coaxial J2
 U 1 1 5BF938E3
 P 3400 3850
-F 0 "J?" H 3550 4050 50  0000 L CNN
+F 0 "J2" H 3550 4050 50  0000 L CNN
 F 1 "Conn_Coaxial" H 3500 3734 50  0000 L CNN
 F 2 "" H 3400 3850 50  0001 C CNN
 F 3 " ~" H 3400 3850 50  0001 C CNN
@@ -55,10 +55,10 @@ F 3 " ~" H 3400 3850 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_Coaxial J?
+L Connector:Conn_Coaxial J4
 U 1 1 5BF93FB8
 P 7450 3700
-F 0 "J?" H 7550 3582 50  0000 L CNN
+F 0 "J4" H 7550 3582 50  0000 L CNN
 F 1 "Conn_Coaxial" H 7550 3673 50  0000 L CNN
 F 2 "" H 7450 3700 50  0001 C CNN
 F 3 " ~" H 7450 3700 50  0001 C CNN
@@ -66,10 +66,10 @@ F 3 " ~" H 7450 3700 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L Connector:Conn_Coaxial J?
+L Connector:Conn_Coaxial J5
 U 1 1 5BF9438D
 P 7450 3900
-F 0 "J?" H 7550 3875 50  0000 L CNN
+F 0 "J5" H 7550 3875 50  0000 L CNN
 F 1 "Conn_Coaxial" H 7550 3784 50  0000 L CNN
 F 2 "" H 7450 3900 50  0001 C CNN
 F 3 " ~" H 7450 3900 50  0001 C CNN
@@ -125,10 +125,10 @@ Wire Wire Line
 Connection ~ 4150 5750
 Connection ~ 5350 5750
 $Comp
-L power:Earth #PWR?
+L power:Earth #PWR0101
 U 1 1 5C0E471A
 P 5000 6000
-F 0 "#PWR?" H 5000 5750 50  0001 C CNN
+F 0 "#PWR0101" H 5000 5750 50  0001 C CNN
 F 1 "Earth" H 5000 5850 50  0001 C CNN
 F 2 "" H 5000 6000 50  0001 C CNN
 F 3 "~" H 5000 6000 50  0001 C CNN
@@ -141,10 +141,10 @@ Connection ~ 5000 5750
 Wire Wire Line
 	5000 5750 4150 5750
 $Comp
-L Connector:Conn_01x03_Male J?
+L Connector:Conn_01x03_Male J3
 U 1 1 5C0E5EB0
 P 5100 3600
-F 0 "J?" H 5208 3881 50  0000 C CNN
+F 0 "J3" H 5208 3881 50  0000 C CNN
 F 1 "Conn_01x03_Male" H 5208 3790 50  0000 C CNN
 F 2 "" H 5100 3600 50  0001 C CNN
 F 3 "~" H 5100 3600 50  0001 C CNN
@@ -190,8 +190,8 @@ L Connector:USB_B_Micro J?
 U 1 1 5C0F0C42
 P 1850 5200
 AR Path="/5BEE3A6A/5C0F0C42" Ref="J?"  Part="1" 
-AR Path="/5C0F0C42" Ref="J?"  Part="1" 
-F 0 "J?" H 1620 5097 50  0000 R CNN
+AR Path="/5C0F0C42" Ref="J1"  Part="1" 
+F 0 "J1" H 1620 5097 50  0000 R CNN
 F 1 "USB_B_Micro" H 1620 5188 50  0000 R CNN
 F 2 "Connector_USB:USB_Micro-B_Wuerth_614105150721_Vertical" H 2000 5150 50  0001 C CNN
 F 3 "~" H 2000 5150 50  0001 C CNN
@@ -235,4 +235,5 @@ Wire Wire Line
 Wire Wire Line
 	2250 4650 2250 5550
 Connection ~ 1850 4650
+NoConn ~ 2150 5000
 $EndSCHEMATC
