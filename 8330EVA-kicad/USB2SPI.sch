@@ -76,19 +76,6 @@ Wire Wire Line
 Wire Wire Line
 	6200 5850 6100 5850
 Connection ~ 6100 5850
-$Comp
-L power:Earth #PWR0101
-U 1 1 5BEE6A05
-P 5200 5950
-F 0 "#PWR0101" H 5200 5700 50  0001 C CNN
-F 1 "Earth" H 5200 5800 50  0001 C CNN
-F 2 "" H 5200 5950 50  0001 C CNN
-F 3 "~" H 5200 5950 50  0001 C CNN
-	1    5200 5950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5200 5950 5200 5850
 Connection ~ 5200 5850
 $Comp
 L pspice:CAP C2
@@ -158,17 +145,6 @@ F 3 "~" H 4450 5450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:USB_B_Micro J1
-U 1 1 5BEF4049
-P 1700 3750
-F 0 "J1" H 1470 3647 50  0000 R CNN
-F 1 "USB_B_Micro" H 1470 3738 50  0000 R CNN
-F 2 "Connector_USB:USB_Micro-B_Wuerth_614105150721_Vertical" H 1850 3700 50  0001 C CNN
-F 3 "~" H 1850 3700 50  0001 C CNN
-	1    1700 3750
-	1    0    0    1   
-$EndComp
-$Comp
 L Device:Ferrite_Bead FB1
 U 1 1 5BEFC068
 P 2450 4200
@@ -179,10 +155,6 @@ F 3 "~" H 2450 4200 50  0001 C CNN
 	1    2450 4200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2450 4050 2450 3950
-Wire Wire Line
-	2450 3950 2000 3950
 $Comp
 L pspice:CAP C1
 U 1 1 5BEFE072
@@ -195,17 +167,8 @@ F 3 "~" H 2450 3250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2450 3500 2450 3950
-Connection ~ 2450 3950
-Wire Wire Line
 	2450 3000 2450 2900
-Wire Wire Line
-	2450 2900 1700 2900
 NoConn ~ 2000 3550
-Text Label 2450 4550 0    50   ~ 0
-VBUS
-Wire Wire Line
-	2450 4550 2450 4350
 $Comp
 L pspice:CAP C6
 U 1 1 5BEEB006
@@ -249,25 +212,7 @@ Connection ~ 9450 3450
 Wire Wire Line
 	9450 2850 9450 2750
 Wire Wire Line
-	9450 2750 9200 2750
-Wire Wire Line
 	8800 2750 8800 2850
-$Comp
-L power:Earth #PWR0102
-U 1 1 5BEF366D
-P 9200 2700
-F 0 "#PWR0102" H 9200 2450 50  0001 C CNN
-F 1 "Earth" H 9200 2550 50  0001 C CNN
-F 2 "" H 9200 2700 50  0001 C CNN
-F 3 "~" H 9200 2700 50  0001 C CNN
-	1    9200 2700
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	9200 2700 9200 2750
-Connection ~ 9200 2750
-Wire Wire Line
-	9200 2750 8800 2750
 Text Label 10600 3550 2    50   ~ 0
 VCC_3V3
 Wire Wire Line
@@ -315,25 +260,7 @@ Connection ~ 9450 2350
 Wire Wire Line
 	9450 1750 9450 1650
 Wire Wire Line
-	9450 1650 9200 1650
-Wire Wire Line
 	8800 1650 8800 1750
-$Comp
-L power:Earth #PWR0103
-U 1 1 5BF0C20C
-P 9200 1600
-F 0 "#PWR0103" H 9200 1350 50  0001 C CNN
-F 1 "Earth" H 9200 1450 50  0001 C CNN
-F 2 "" H 9200 1600 50  0001 C CNN
-F 3 "~" H 9200 1600 50  0001 C CNN
-	1    9200 1600
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	9200 1600 9200 1650
-Connection ~ 9200 1650
-Wire Wire Line
-	9200 1650 8800 1650
 Wire Wire Line
 	9450 3450 8800 3450
 Wire Wire Line
@@ -474,17 +401,6 @@ F 3 "~" H 8550 4950 50  0001 C CNN
 	1    8550 4950
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:Earth #PWR0106
-U 1 1 5BF7B162
-P 9050 5400
-F 0 "#PWR0106" H 9050 5150 50  0001 C CNN
-F 1 "Earth" H 9050 5250 50  0001 C CNN
-F 2 "" H 9050 5400 50  0001 C CNN
-F 3 "~" H 9050 5400 50  0001 C CNN
-	1    9050 5400
-	1    0    0    -1  
-$EndComp
 Text Label 4100 3450 0    50   ~ 0
 VCCA
 Wire Wire Line
@@ -550,11 +466,6 @@ Wire Wire Line
 Wire Wire Line
 	3250 2900 3550 2900
 Wire Wire Line
-	1700 2900 1700 3350
-Wire Wire Line
-	1600 2900 1700 2900
-Connection ~ 1700 2900
-Wire Wire Line
 	3650 5850 4450 5850
 $Comp
 L Device:R R3
@@ -586,44 +497,22 @@ Wire Wire Line
 	3850 3650 3550 3650
 Connection ~ 3250 3750
 Wire Wire Line
-	3250 3750 2000 3750
-Wire Wire Line
 	3250 3750 3850 3750
 Wire Wire Line
 	3250 3450 3250 3750
-Wire Wire Line
-	2000 3650 3550 3650
 Connection ~ 3550 3650
-Wire Wire Line
-	2450 2900 2950 2900
 Connection ~ 2450 2900
 Connection ~ 3250 2900
-$Comp
-L power:Earth #PWR0107
-U 1 1 5C04C01A
-P 2950 3100
-F 0 "#PWR0107" H 2950 2850 50  0001 C CNN
-F 1 "Earth" H 2950 2950 50  0001 C CNN
-F 2 "" H 2950 3100 50  0001 C CNN
-F 3 "~" H 2950 3100 50  0001 C CNN
-	1    2950 3100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2950 3100 2950 2900
-Connection ~ 2950 2900
-Wire Wire Line
-	2950 2900 3250 2900
 Wire Wire Line
 	4100 3050 4700 3050
 Text Label 4100 3050 0    50   ~ 0
 VREGIN
-Text Label 9100 6300 0    50   ~ 0
+Text Label 2250 6500 0    50   ~ 0
 VCCIO
-Text Label 9700 6300 0    50   ~ 0
+Text Label 2850 6500 0    50   ~ 0
 VCC_3V3
 Wire Wire Line
-	9700 6300 9100 6300
+	2850 6500 2550 6500
 Wire Wire Line
 	7950 4450 7950 4700
 Wire Wire Line
@@ -638,8 +527,6 @@ Wire Wire Line
 	8550 5300 8550 5200
 Wire Wire Line
 	9400 5200 9400 5300
-Wire Wire Line
-	9400 5300 9050 5300
 Connection ~ 8550 5300
 Wire Wire Line
 	10050 5200 10050 5300
@@ -651,23 +538,12 @@ Wire Wire Line
 Wire Wire Line
 	10650 5300 10050 5300
 Connection ~ 10050 5300
-Wire Wire Line
-	9050 5400 9050 5300
-Connection ~ 9050 5300
-Wire Wire Line
-	9050 5300 8550 5300
-Text Label 9100 6000 0    50   ~ 0
+Text Label 2550 6200 0    50   ~ 0
 VREGIN
-Text Label 9700 6000 0    50   ~ 0
-VBUS
-Wire Wire Line
-	9100 6000 9700 6000
 Text Label 4100 3250 0    50   ~ 0
 VCC_3V3
 Wire Wire Line
 	4100 3250 4700 3250
-Wire Wire Line
-	1600 2900 1600 3350
 $Comp
 L Device:R R2
 U 1 1 5C108067
@@ -707,4 +583,151 @@ Text Label 4100 3950 0    50   ~ 0
 RST
 Wire Wire Line
 	4100 3950 4700 3950
+Text HLabel 950  3750 0    50   Input ~ 0
+USB_D+
+Text HLabel 950  3650 0    50   Input ~ 0
+USB_D-
+Text HLabel 900  4700 0    50   Input ~ 0
+VBUS
+Text HLabel 950  2900 0    50   Input ~ 0
+Ground
+Wire Wire Line
+	900  4700 2450 4700
+Wire Wire Line
+	2450 4350 2450 4700
+Wire Wire Line
+	950  3750 3250 3750
+Wire Wire Line
+	950  3650 3550 3650
+Wire Wire Line
+	950  2900 1400 2900
+Wire Wire Line
+	2450 3500 2450 4050
+Wire Wire Line
+	2450 2900 3250 2900
+Wire Wire Line
+	1400 2900 1400 5850
+Connection ~ 1400 2900
+Wire Wire Line
+	1400 2900 2450 2900
+Connection ~ 2900 5850
+Wire Wire Line
+	7350 5300 7350 5850
+Wire Wire Line
+	7350 5850 6200 5850
+Connection ~ 7350 5300
+Connection ~ 6200 5850
+Wire Wire Line
+	8550 5300 9100 5300
+Wire Wire Line
+	8800 1650 9100 1650
+Wire Wire Line
+	9100 1650 9100 2750
+Connection ~ 9100 1650
+Wire Wire Line
+	9100 1650 9450 1650
+Connection ~ 9100 2750
+Wire Wire Line
+	9100 2750 8800 2750
+Wire Wire Line
+	9100 2750 9450 2750
+Wire Wire Line
+	9100 2750 9100 5300
+Connection ~ 9100 5300
+Wire Wire Line
+	9100 5300 9400 5300
+$Comp
+L Regulator_Linear:AMS1117-3.3 U?
+U 1 1 5C1170A7
+P 2100 5150
+F 0 "U?" H 2100 5392 50  0000 C CNN
+F 1 "AMS1117-3.3" H 2100 5301 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2100 5350 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 2200 4900 50  0001 C CNN
+	1    2100 5150
+	1    0    0    -1  
+$EndComp
+Text HLabel 900  5150 0    50   Input ~ 0
+VCC_+5V
+$Comp
+L Device:C C?
+U 1 1 5C11D7BE
+P 1100 5500
+F 0 "C?" H 1215 5546 50  0000 L CNN
+F 1 "4.7u" H 1215 5455 50  0000 L CNN
+F 2 "" H 1138 5350 50  0001 C CNN
+F 3 "~" H 1100 5500 50  0001 C CNN
+	1    1100 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5C11DF65
+P 1650 5500
+F 0 "C?" H 1765 5546 50  0000 L CNN
+F 1 "100n" H 1765 5455 50  0000 L CNN
+F 2 "" H 1688 5350 50  0001 C CNN
+F 3 "~" H 1650 5500 50  0001 C CNN
+	1    1650 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1650 5350 1650 5150
+Wire Wire Line
+	900  5150 1100 5150
+Connection ~ 1650 5150
+Wire Wire Line
+	1650 5150 1800 5150
+Wire Wire Line
+	1100 5350 1100 5150
+Connection ~ 1100 5150
+Wire Wire Line
+	1100 5150 1650 5150
+Wire Wire Line
+	1100 5650 1100 5850
+Wire Wire Line
+	1100 5850 1400 5850
+Connection ~ 1400 5850
+Wire Wire Line
+	1400 5850 1650 5850
+Wire Wire Line
+	1650 5650 1650 5850
+Connection ~ 1650 5850
+Wire Wire Line
+	2100 5450 2100 5850
+Wire Wire Line
+	1650 5850 2100 5850
+Connection ~ 2100 5850
+$Comp
+L Device:C C?
+U 1 1 5C137049
+P 2500 5500
+F 0 "C?" H 2615 5546 50  0000 L CNN
+F 1 "100n" H 2550 5400 50  0000 L CNN
+F 2 "" H 2538 5350 50  0001 C CNN
+F 3 "~" H 2500 5500 50  0001 C CNN
+	1    2500 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 5150 2400 5150
+Wire Wire Line
+	2100 5850 2500 5850
+Wire Wire Line
+	2500 5650 2500 5850
+Connection ~ 2500 5850
+Wire Wire Line
+	2500 5850 2900 5850
+Text Label 2500 4850 0    50   ~ 0
+VREGIN
+Wire Wire Line
+	2500 4850 2500 5150
+Connection ~ 2500 5150
+Wire Wire Line
+	2500 5150 2500 5350
+Wire Wire Line
+	2550 6200 2550 6500
+Connection ~ 2550 6500
+Wire Wire Line
+	2550 6500 2250 6500
 $EndSCHEMATC
