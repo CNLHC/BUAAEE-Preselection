@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 3
+Sheet 2 5
 Title "FT232H"
 Date "2018-11-16"
 Rev "Dev-0.0"
