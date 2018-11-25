@@ -49,7 +49,7 @@ U 1 1 5BF938E3
 P 3400 3850
 F 0 "J2" H 3550 4050 50  0000 L CNN
 F 1 "Conn_Coaxial" H 3500 3734 50  0000 L CNN
-F 2 "Connector_Coaxial:SMA_Amphenol_132289_EdgeMount" H 3400 3850 50  0001 C CNN
+F 2 "Connector_Coaxial:SMA_Amphenol_132134-14_Vertical" H 3400 3850 50  0001 C CNN
 F 3 " ~" H 3400 3850 50  0001 C CNN
 	1    3400 3850
 	-1   0    0    -1  
@@ -60,7 +60,7 @@ U 1 1 5BF93FB8
 P 7450 3700
 F 0 "J4" H 7550 3582 50  0000 L CNN
 F 1 "Conn_Coaxial" H 7550 3673 50  0000 L CNN
-F 2 "Connector_Coaxial:SMA_Amphenol_132289_EdgeMount" H 7450 3700 50  0001 C CNN
+F 2 "Connector_Coaxial:SMA_Amphenol_132134-11_Vertical" H 7450 3700 50  0001 C CNN
 F 3 " ~" H 7450 3700 50  0001 C CNN
 	1    7450 3700
 	1    0    0    1   
@@ -71,7 +71,7 @@ U 1 1 5BF9438D
 P 7450 3900
 F 0 "J5" H 7550 3875 50  0000 L CNN
 F 1 "Conn_Coaxial" H 7550 3784 50  0000 L CNN
-F 2 "Connector_Coaxial:SMA_Amphenol_132289_EdgeMount" H 7450 3900 50  0001 C CNN
+F 2 "Connector_Coaxial:SMA_Amphenol_132134-11_Vertical" H 7450 3900 50  0001 C CNN
 F 3 " ~" H 7450 3900 50  0001 C CNN
 	1    7450 3900
 	1    0    0    -1  
@@ -193,7 +193,7 @@ AR Path="/5BEE3A6A/5C0F0C42" Ref="J?"  Part="1"
 AR Path="/5C0F0C42" Ref="J1"  Part="1" 
 F 0 "J1" H 1620 5097 50  0000 R CNN
 F 1 "USB_B_Micro" H 1620 5188 50  0000 R CNN
-F 2 "Connector_USB:USB_Micro-B_Wuerth_614105150721_Vertical" H 2000 5150 50  0001 C CNN
+F 2 "Connector_USB:USB_Micro-B_Molex_47346-0001" H 2000 5150 50  0001 C CNN
 F 3 "~" H 2000 5150 50  0001 C CNN
 	1    1850 5200
 	1    0    0    1   

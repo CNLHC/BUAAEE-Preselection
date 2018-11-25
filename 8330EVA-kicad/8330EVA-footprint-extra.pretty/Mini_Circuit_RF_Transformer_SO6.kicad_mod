@@ -1,4 +1,4 @@
-(module Mini_Circuit_RF_Transformer_SO6 (layer F.Cu) (tedit 5BF958AD)
+(module Mini_Circuit_RF_Transformer_SO6 (layer F.Cu) (tedit 5BFAA048)
   (attr smd)
   (fp_text reference T** (at 0.0508 -7.62762) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
@@ -17,4 +17,9 @@
   (pad 4 smd rect (at 5.829236 1.889149) (size 3.18 1.27) (layers F.Cu F.Paste F.Mask))
   (pad 5 smd rect (at 5.829236 -0.650851) (size 3.18 1.27) (layers F.Cu F.Paste F.Mask))
   (pad 6 smd rect (at 5.829236 -3.190851) (size 3.18 1.27) (layers F.Cu F.Paste F.Mask))
+  (model ${KIPRJMOD}/extra-3d-model/RF-Transformer.step
+    (at (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
 )
