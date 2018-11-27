@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:8330_EVA-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -193,7 +193,7 @@ AR Path="/5BEE3A6A/5C0F0C42" Ref="J?"  Part="1"
 AR Path="/5C0F0C42" Ref="J1"  Part="1" 
 F 0 "J1" H 1620 5097 50  0000 R CNN
 F 1 "USB_B_Micro" H 1620 5188 50  0000 R CNN
-F 2 "Connector_USB:USB_Micro-B_Wuerth_614105150721_Vertical" H 2000 5150 50  0001 C CNN
+F 2 "Connector_USB:USB_Mini-B_Lumberg_2486_01_Horizontal" H 2000 5150 50  0001 C CNN
 F 3 "~" H 2000 5150 50  0001 C CNN
 	1    1850 5200
 	1    0    0    1   
