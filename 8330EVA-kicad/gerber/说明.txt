@@ -1,0 +1,5 @@
+这是一个使用EXCEL 的宏(VBA)功能 开发的转换工具.
+
+本工具将 KiCAD 输出的 POS 格式的坐标 转换成 Altium Designer相同输出样式.  使用 后缀名为 .CSV 的文件保存.
+
+
