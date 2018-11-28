@@ -95,75 +95,22 @@ Wire Wire Line
 Wire Wire Line
 	7150 1950 7500 1950
 Wire Wire Line
-	7500 1500 7800 1500
-Wire Wire Line
 	7500 1500 7500 1800
-Wire Wire Line
-	7500 2250 7800 2250
 Wire Wire Line
 	7500 1950 7500 2250
 $Comp
-L Device:C C26
-U 1 1 5BFD0258
-P 7800 1650
-F 0 "C26" H 7685 1604 50  0000 R CNN
-F 1 "12p" H 7685 1695 50  0000 R CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7838 1500 50  0001 C CNN
-F 3 "~" H 7800 1650 50  0001 C CNN
-	1    7800 1650
-	1    0    0    1   
-$EndComp
-$Comp
-L Device:C C27
-U 1 1 5BFD06D1
-P 7800 2100
-F 0 "C27" H 7685 2054 50  0000 R CNN
-F 1 "12p" H 7685 2145 50  0000 R CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7838 1950 50  0001 C CNN
-F 3 "~" H 7800 2100 50  0001 C CNN
-	1    7800 2100
-	1    0    0    1   
-$EndComp
-Wire Wire Line
-	7800 1800 7800 1850
-Wire Wire Line
-	8000 1850 7800 1850
-Connection ~ 7800 1850
-Wire Wire Line
-	7800 1850 7800 1950
-$Comp
 L 8330_EVA-extra:T1-1T-KK81 T1
 U 1 1 5BFDF9EF
-P 9100 1650
-F 0 "T1" H 9075 2065 50  0000 C CNN
-F 1 "T1-1T-KK81" H 9075 1974 50  0000 C CNN
-F 2 "8330EVA-footprint-extra:Mini_Circuit_RF_Transformer_SO6" H 9690 1690 50  0001 C CNN
-F 3 "https://ww3.minicircuits.com/pdfs/T1-1T-KK81.pdf" H 9100 1250 50  0001 C CNN
-	1    9100 1650
-	1    0    0    -1  
-$EndComp
-$Comp
-L 8330_EVA-extra:T1-1T-KK81 T2
-U 1 1 5BFE14B7
-P 9100 2100
-F 0 "T2" H 9250 2500 50  0000 C CNN
-F 1 "T1-1T-KK81" H 8800 2450 50  0000 C CNN
-F 2 "8330EVA-footprint-extra:Mini_Circuit_RF_Transformer_SO6" H 9690 2140 50  0001 C CNN
-F 3 "https://ww3.minicircuits.com/pdfs/T1-1T-KK81.pdf" H 9100 1700 50  0001 C CNN
-	1    9100 2100
-	1    0    0    1   
+P 9200 1900
+F 0 "T1" H 9175 2315 50  0000 C CNN
+F 1 "T1-1T-KK81" H 9175 2224 50  0000 C CNN
+F 2 "8330EVA-footprint-extra:Mini_Circuit_RF_Transformer_SO6" H 9790 1940 50  0001 C CNN
+F 3 "https://ww3.minicircuits.com/pdfs/T1-1T-KK81.pdf" H 9200 1500 50  0001 C CNN
+	1    9200 1900
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	8450 1800 8300 1800
-Wire Wire Line
-	8000 1800 8000 1850
-Connection ~ 8000 1850
-Wire Wire Line
-	9900 1950 9700 1950
-Wire Wire Line
-	9700 1500 10300 1500
-Wire Wire Line
-	10300 2250 9700 2250
+	10300 2250 9850 2250
 Wire Wire Line
 	7150 2250 7300 2250
 Wire Wire Line
@@ -475,64 +422,31 @@ Connection ~ 2100 2800
 Connection ~ 3350 3850
 Wire Wire Line
 	3350 3850 3650 3850
-Wire Wire Line
-	8000 3850 4850 3850
 Connection ~ 4850 3850
-Wire Wire Line
-	10000 3850 8000 3850
-Connection ~ 8000 3850
 NoConn ~ 9700 1650
 NoConn ~ 9700 2100
 $Comp
 L Device:C C28
 U 1 1 5C087144
-P 8200 1500
-F 0 "C28" H 8300 1400 50  0000 R CNN
-F 1 "0.1u" H 8050 1500 50  0000 R CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 8238 1350 50  0001 C CNN
-F 3 "~" H 8200 1500 50  0001 C CNN
-	1    8200 1500
+P 7800 1500
+F 0 "C28" H 7900 1400 50  0000 R CNN
+F 1 "0.1u" H 7650 1500 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7838 1350 50  0001 C CNN
+F 3 "~" H 7800 1500 50  0001 C CNN
+	1    7800 1500
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	8350 1500 8450 1500
-Wire Wire Line
-	8050 1500 7800 1500
-Connection ~ 7800 1500
 $Comp
 L Device:C C29
 U 1 1 5C0A02D1
-P 8200 2250
-F 0 "C29" H 8300 2150 50  0000 R CNN
-F 1 "0.1u" H 8050 2250 50  0000 R CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 8238 2100 50  0001 C CNN
-F 3 "~" H 8200 2250 50  0001 C CNN
-	1    8200 2250
+P 7800 2250
+F 0 "C29" H 7900 2150 50  0000 R CNN
+F 1 "0.1u" H 7650 2250 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7838 2100 50  0001 C CNN
+F 3 "~" H 7800 2250 50  0001 C CNN
+	1    7800 2250
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	8350 2250 8450 2250
-Wire Wire Line
-	8050 2250 7800 2250
-Connection ~ 7800 2250
-Wire Wire Line
-	9900 1800 9900 1850
-Wire Wire Line
-	10000 1850 9900 1850
-Wire Wire Line
-	10000 1850 10000 3850
-Connection ~ 9900 1850
-Wire Wire Line
-	9900 1850 9900 1950
-Wire Wire Line
-	8000 1850 8000 3850
-Wire Wire Line
-	8450 1950 8300 1950
-Wire Wire Line
-	8300 1950 8300 1800
-Connection ~ 8300 1800
-Wire Wire Line
-	8300 1800 8000 1800
 $Bitmap
 Pos 3900 6000
 Scale 1.000000
@@ -6626,10 +6540,83 @@ B7 4E 98 3C 32 B1 0D BD C9 80 6B 86 AD 06 00 00 00 49 04 D0 00 00 00 00 00 00 00
 EndData
 $EndBitmap
 Wire Wire Line
-	9700 1800 9900 1800
-Wire Wire Line
 	2100 800  2100 1800
 Connection ~ 2100 1800
 Wire Wire Line
 	2100 1800 2250 1800
+Wire Wire Line
+	7500 2250 7650 2250
+Wire Wire Line
+	7500 1500 7650 1500
+Wire Wire Line
+	4850 3850 8250 3850
+$Comp
+L Device:C C26
+U 1 1 5BFEEF3F
+P 8400 1900
+F 0 "C26" H 8500 1800 50  0000 R CNN
+F 1 "0.1u" H 8250 1900 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 8438 1750 50  0001 C CNN
+F 3 "~" H 8400 1900 50  0001 C CNN
+	1    8400 1900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7950 2250 8000 2250
+Wire Wire Line
+	8400 2250 8600 2050
+Wire Wire Line
+	8400 1500 8600 1750
+Wire Wire Line
+	7950 1500 8000 1500
+Wire Wire Line
+	8550 1900 8600 1900
+Wire Wire Line
+	8250 1900 8250 3850
+Connection ~ 8250 3850
+Wire Wire Line
+	8250 3850 9850 3850
+$Comp
+L Device:R R9
+U 1 1 5C01052F
+P 8000 1900
+F 0 "R9" V 7793 1900 50  0000 C CNN
+F 1 "220" V 7884 1900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 7930 1900 50  0001 C CNN
+F 3 "~" H 8000 1900 50  0001 C CNN
+	1    8000 1900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8000 1750 8000 1500
+Connection ~ 8000 1500
+Wire Wire Line
+	8000 1500 8400 1500
+Wire Wire Line
+	8000 2050 8000 2250
+Connection ~ 8000 2250
+Wire Wire Line
+	8000 2250 8400 2250
+Wire Wire Line
+	9850 1500 9850 1750
+Wire Wire Line
+	9850 1500 10300 1500
+Connection ~ 9850 2250
+$Comp
+L Device:R R10
+U 1 1 5C02A3FB
+P 9850 3200
+F 0 "R10" V 9643 3200 50  0000 C CNN
+F 1 "0" V 9734 3200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9780 3200 50  0001 C CNN
+F 3 "~" H 9850 3200 50  0001 C CNN
+	1    9850 3200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9850 2250 9850 3050
+Wire Wire Line
+	9850 3350 9850 3850
+Wire Wire Line
+	9850 2050 9850 2250
 $EndSCHEMATC
