@@ -1,0 +1,18 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AD8131
+D Low Cost, High Speed Differential Driver
+K Differential,OPAMP
+$ENDCMP
+#
+$CMP AD8330
+D Low Cost, DC to 150 MHz,Variable Gain Amplifier
+K VGA
+$ENDCMP
+#
+$CMP T1-1T-KK81
+D wideband RF Transformer, 0.08 to 200Mhz
+K RF,Transformer
+$ENDCMP
+#
+#End Doc Library
