@@ -235,6 +235,41 @@
    type="conduit"
    dir="end" />
  <interface
+   name="frequencymeter_0_hspllgroup_outclk0"
+   internal="FrequencyMeter_0.hspllgroup_outclk0"
+   type="clock"
+   dir="start" />
+ <interface
+   name="frequencymeter_0_hspllgroup_outclk1"
+   internal="FrequencyMeter_0.hspllgroup_outclk1"
+   type="clock"
+   dir="start" />
+ <interface
+   name="frequencymeter_0_hspllgroup_outclk2"
+   internal="FrequencyMeter_0.hspllgroup_outclk2"
+   type="clock"
+   dir="start" />
+ <interface
+   name="frequencymeter_0_hspllgroup_outclk3"
+   internal="FrequencyMeter_0.hspllgroup_outclk3"
+   type="clock"
+   dir="start" />
+ <interface
+   name="frequencymeter_0_hspllgroup_outclk4"
+   internal="FrequencyMeter_0.hspllgroup_outclk4"
+   type="clock"
+   dir="start" />
+ <interface
+   name="frequencymeter_0_hspllgroup_outclk5"
+   internal="FrequencyMeter_0.hspllgroup_outclk5"
+   type="clock"
+   dir="start" />
+ <interface
+   name="frequencymeter_0_hspllgroup_outclk6"
+   internal="FrequencyMeter_0.hspllgroup_outclk6"
+   type="clock"
+   dir="start" />
+ <interface
    name="frequencymeter_0_piophacountlsb_external_connection"
    internal="FrequencyMeter_0.piophacountlsb_external_connection"
    type="conduit"

@@ -3,12 +3,12 @@ module FrequencyMeter(
     input sysClk,
     input realTimeTikTok,
     input sysRst,
-    output reg [64:0]refCounter,
-    output reg [64:0]sigCounter
+    output reg [63:0]refCounter,
+    output reg [63:0]sigCounter
 );
 
-reg [64:0] refCountBuf;
-reg [64:0] sigCountBuf;
+reg [63:0] refCountBuf;
+reg [63:0] sigCountBuf;
 reg FSM;
 wire  releaxSignal;
 

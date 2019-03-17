@@ -1,13 +1,13 @@
-module PhraseDetector(
+module PhaseDetector(
     input workClk,
     input sysClk,
     input sysRst,
     input CHA,
     input CHB,
-    output [64:0]phraseDiffCounter
+    output [63:0]diffCounter
 );
 reg [1:0]FSM;
-reg [64:0] phraseDiffCountBuf;
+reg [63:0] phraseDiffCountBuf;
 
 wire  releaxSignal;
 wire  releaxEnable;
@@ -23,7 +23,7 @@ ReleaxGenerator URG1 (
 always @(posedge workClk or posedge sysRst) begin
     if(sysRst)begin
         phraseDiffCountBuf<=0;
-        phraseDiffCounter<=0;
+        diffCounter<=0;
     end
     else begin
         case (FSM) 
@@ -34,7 +34,7 @@ always @(posedge workClk or posedge sysRst) begin
                 phraseDiffCountBuf<=phraseDiffCountBuf+1;
             end
             2: begin
-                phraseDiffCounter<=phraseDiffCountBuf;
+                diffCounter<=phraseDiffCountBuf;
             end
         endcase
     end

@@ -192,6 +192,8 @@ module DE10_Standard_GHRD(
   assign LEDR[9:1] = fpga_led_internal;
   assign stm_hw_events    = {{4{1'b0}}, SW, fpga_led_internal, fpga_debounced_buttons};
   assign fpga_clk_50=CLOCK_50;
+
+
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -299,19 +301,84 @@ soc_system u0 (
 		  .hps_0_f2h_stm_hw_events_stm_hwevents  (stm_hw_events ),  //        hps_0_f2h_stm_hw_events.stm_hwevents
 		  .hps_0_f2h_warm_reset_req_reset_n      (~hps_warm_reset ),      //       hps_0_f2h_warm_reset_req.reset_n
       //Frequenct Meter
-      .frequencymeter_0_piophacountmsb_external_connection_export(),
-      .frequencymeter_0_piophacountlsb_external_connection_export(),
-      .frequencymeter_0_piorefcountmsb_external_connection_export(),
-      .frequencymeter_0_piorefcountlsb_external_connection_export(),
-      .frequencymeter_0_piosigcountmsb_external_connection_export(),
-      .frequencymeter_0_piosigcountlsb_external_connection_export(),
+      .frequencymeter_0_piophacountmsb_external_connection_export(diffCountMSB),
+      .frequencymeter_0_piophacountlsb_external_connection_export(diffCountLSB),
+      .frequencymeter_0_piorefcountmsb_external_connection_export(refCountMSB),
+      .frequencymeter_0_piorefcountlsb_external_connection_export(refCountLSB),
+      .frequencymeter_0_piosigcountmsb_external_connection_export(sigCountMSB),
+      .frequencymeter_0_piosigcountlsb_external_connection_export(sigCountLSB),
+      .frequencymeter_0_hspllgroup_outclk0_clk(PADPLL0),
+      .frequencymeter_0_hspllgroup_outclk1_clk(PADPLL1),
+      .frequencymeter_0_hspllgroup_outclk2_clk(PADPLL2),
+      .frequencymeter_0_hspllgroup_outclk3_clk(PADPLL3),
+      .frequencymeter_0_hspllgroup_outclk4_clk(PADPLL4),
+      .frequencymeter_0_hspllgroup_outclk5_clk(PADPLL5),
+      .frequencymeter_0_hspllgroup_outclk6_clk(PADPLL6),
       .frequencymeter_0_pll_0_locked_export()
-      
-      
     );
 
-	 
-	 // Debounce logic to clean out glitches within 1ms
+//=======================================================
+//  Frequency Measurement
+//=======================================================
+
+
+wire PADPLL0;
+wire PADPLL1;
+wire PADPLL2;
+wire PADPLL3;
+wire PADPLL4;
+wire PADPLL5;
+wire PADPLL6;
+wire InputCHA;
+wire InputCHB;
+wire realTimeTikTok;
+wire VHSClock;
+wire globalReset;
+wire [31:0]refCountMSB;
+wire [31:0]refCountLSB;
+wire [31:0]sigCountMSB;
+wire [31:0]sigCountLSB;
+wire [31:0]diffCountMSB;
+wire [31:0]diffCountLSB;
+
+FrequencyMeter UFM1(
+    .signal(InputCHA),
+    .sysClk(CLOCK_50),
+    .realTimeTikTok(realTimeTikTok),
+    .sysRst(globalReset),
+    .refCounter({refCountMSB,refCountLSB}),
+    .sigCounter({sigCountMSB,sigCountLSB})
+);
+
+RealTimeClockGenerator URTCG1(
+    .sysClk(CLOCK_50),
+    .sysRst(globalReset),
+    .tikTok(realTimeTikTok)
+);
+
+PhaseDetector UPD1(
+    .workClk(VHSClock),
+    .sysClk(CLOCK_50),
+    .sysRst(globalReset),
+    .CHA(InputCHA),
+    .CHB(InputCHB),
+    .diffCounter({diffCountMSB,diffCountLSB})
+);
+
+HighSpeedClockGenerator UHSCG1(
+      .PLL0(PADPLL0),
+      .PLL1(PADPLL1),
+      .PLL2(PADPLL2),
+      .PLL3(PADPLL3),
+      .PLL4(PADPLL4),
+      .PLL5(PADPLL5),
+      .PLL6(PADPLL6),
+      .HighSpeedClock(VHSClock)
+);
+
+
+// Debounce logic to clean out glitches within 1ms
+//
 debounce debounce_inst (
   .clk                                  (fpga_clk_50),
   .reset_n                              (hps_fpga_reset_n),  
