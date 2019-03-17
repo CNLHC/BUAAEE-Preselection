@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "6";
          type = "int";
       }
    }
@@ -37,7 +37,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "8";
          type = "int";
       }
    }
@@ -66,7 +66,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "7";
          type = "int";
       }
    }
@@ -235,43 +235,8 @@
    type="conduit"
    dir="end" />
  <interface
-   name="frequencymeter_0_hspllgroup_outclk0"
-   internal="FrequencyMeter_0.hspllgroup_outclk0"
-   type="clock"
-   dir="start" />
- <interface
-   name="frequencymeter_0_hspllgroup_outclk1"
-   internal="FrequencyMeter_0.hspllgroup_outclk1"
-   type="clock"
-   dir="start" />
- <interface
-   name="frequencymeter_0_hspllgroup_outclk2"
-   internal="FrequencyMeter_0.hspllgroup_outclk2"
-   type="clock"
-   dir="start" />
- <interface
-   name="frequencymeter_0_hspllgroup_outclk3"
-   internal="FrequencyMeter_0.hspllgroup_outclk3"
-   type="clock"
-   dir="start" />
- <interface
-   name="frequencymeter_0_hspllgroup_outclk4"
-   internal="FrequencyMeter_0.hspllgroup_outclk4"
-   type="clock"
-   dir="start" />
- <interface
-   name="frequencymeter_0_hspllgroup_outclk5"
-   internal="FrequencyMeter_0.hspllgroup_outclk5"
-   type="clock"
-   dir="start" />
- <interface
-   name="frequencymeter_0_hspllgroup_outclk6"
-   internal="FrequencyMeter_0.hspllgroup_outclk6"
-   type="clock"
-   dir="start" />
- <interface
-   name="frequencymeter_0_piophacountmsb_0_external_connection"
-   internal="FrequencyMeter_0.piophacountmsb_0_external_connection"
+   name="frequencymeter_0_piophacountlsb_external_connection"
+   internal="FrequencyMeter_0.piophacountlsb_external_connection"
    type="conduit"
    dir="end" />
  <interface
@@ -297,6 +262,11 @@
  <interface
    name="frequencymeter_0_piosigcountmsb_external_connection"
    internal="FrequencyMeter_0.piosigcountmsb_external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="frequencymeter_0_pll_0_locked"
+   internal="FrequencyMeter_0.pll_0_locked"
    type="conduit"
    dir="end" />
  <interface
@@ -332,11 +302,6 @@
    dir="end" />
  <interface name="memory" internal="hps_0.memory" type="conduit" dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
- <interface
-   name="reset_0"
-   internal="FrequencyMeter_0.reset"
-   type="reset"
-   dir="end" />
  <module
    name="FrequencyMeter_0"
    kind="FrequencyMeter"
@@ -1132,9 +1097,9 @@
    kind="avalon"
    version="16.1"
    start="fpga_only_master.master"
-   end="FrequencyMeter_0.piophacountmsb_0_s1">
+   end="FrequencyMeter_0.piophacountlsb_s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xb000" />
+  <parameter name="baseAddress" value="0x6000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1143,7 +1108,7 @@
    start="fpga_only_master.master"
    end="FrequencyMeter_0.piophacountmsb_s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0xa000" />
+  <parameter name="baseAddress" value="0x7000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1152,7 +1117,7 @@
    start="fpga_only_master.master"
    end="FrequencyMeter_0.piorefcountlsb_s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x9000" />
+  <parameter name="baseAddress" value="0x8000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1161,7 +1126,7 @@
    start="fpga_only_master.master"
    end="FrequencyMeter_0.piorefcountmsb_s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x8000" />
+  <parameter name="baseAddress" value="0x9000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1170,7 +1135,7 @@
    start="fpga_only_master.master"
    end="FrequencyMeter_0.piosigcountlsb_s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x7000" />
+  <parameter name="baseAddress" value="0xa000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1179,7 +1144,7 @@
    start="fpga_only_master.master"
    end="FrequencyMeter_0.piosigcountmsb_s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x6000" />
+  <parameter name="baseAddress" value="0xb000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1331,6 +1296,11 @@
    version="16.1"
    start="clk_0.clk_reset"
    end="mm_bridge_0.reset" />
+ <connection
+   kind="reset"
+   version="16.1"
+   start="clk_0.clk_reset"
+   end="FrequencyMeter_0.reset" />
  <connection kind="reset" version="16.1" start="clk_0.clk_reset" end="ILC.reset_n" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />

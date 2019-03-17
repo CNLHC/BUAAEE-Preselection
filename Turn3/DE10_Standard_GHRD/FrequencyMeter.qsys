@@ -25,19 +25,19 @@
          type = "int";
       }
    }
+   element pioPhaCountLSB
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+   }
    element pioPhaCountMSB
    {
       datum _sortIndex
       {
          value = "6";
-         type = "int";
-      }
-   }
-   element pioPhaCountMSB_0
-   {
-      datum _sortIndex
-      {
-         value = "7";
          type = "int";
       }
    }
@@ -141,13 +141,13 @@
    type="clock"
    dir="start" />
  <interface
-   name="piophacountmsb_0_external_connection"
-   internal="pioPhaCountMSB_0.external_connection"
+   name="piophacountlsb_external_connection"
+   internal="pioPhaCountLSB.external_connection"
    type="conduit"
    dir="end" />
  <interface
-   name="piophacountmsb_0_s1"
-   internal="pioPhaCountMSB_0.s1"
+   name="piophacountlsb_s1"
+   internal="pioPhaCountLSB.s1"
    type="avalon"
    dir="end" />
  <interface
@@ -416,7 +416,7 @@
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
  <module
-   name="pioPhaCountMSB"
+   name="pioPhaCountLSB"
    kind="altera_avalon_pio"
    version="16.1"
    enabled="1">
@@ -434,7 +434,7 @@
   <parameter name="width" value="32" />
  </module>
  <module
-   name="pioPhaCountMSB_0"
+   name="pioPhaCountMSB"
    kind="altera_avalon_pio"
    version="16.1"
    enabled="1">
@@ -552,7 +552,7 @@
    kind="clock"
    version="16.1"
    start="clk_0.clk"
-   end="pioPhaCountMSB_0.clk" />
+   end="pioPhaCountLSB.clk" />
  <connection kind="clock" version="16.1" start="clk_0.clk" end="HSPLLGroup.refclk" />
  <connection
    kind="reset"
@@ -563,7 +563,7 @@
    kind="reset"
    version="16.1"
    start="clk_0.clk_reset"
-   end="pioPhaCountMSB_0.reset" />
+   end="pioPhaCountLSB.reset" />
  <connection
    kind="reset"
    version="16.1"
