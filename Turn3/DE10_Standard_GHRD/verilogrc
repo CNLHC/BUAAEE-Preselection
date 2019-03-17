@@ -1,0 +1,8 @@
+
+./soc_system/soc_system_bb.v
+./ip/debounce/debounce.v
+./ip/edge_detect/altera_edge_detector.v
+./ip/altsource_probe/hps_reset_bb.v
+-I ../FrequencyIP/FrequencyMeter
+-I ../FrequencyIP/Clock
+
