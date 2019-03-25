@@ -2,7 +2,7 @@ module ReleaxGenerator(
     input  sysClk,
     input  sysRst,
     input  enable,
-    output releaxSignal);
+    output reg releaxSignal);
 
 reg [64:0]counter;
 

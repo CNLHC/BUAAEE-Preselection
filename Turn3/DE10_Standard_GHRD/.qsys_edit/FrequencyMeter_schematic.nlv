@@ -1,8 +1,37 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst FrequencyMeter.clk_0 -pg 1 -lvl 1 -y 30
+preplace inst FrequencyMeter.pioSigCountMSB -pg 1 -lvl 2 -y 700
+preplace inst FrequencyMeter.clk_0 -pg 1 -lvl 1 -y 50
+preplace inst FrequencyMeter.pioRefCountLSB -pg 1 -lvl 2 -y 400
+preplace inst FrequencyMeter.pioPhaCountMSB -pg 1 -lvl 2 -y 300
+preplace inst FrequencyMeter.pioRefCountMSB -pg 1 -lvl 2 -y 500
+preplace inst FrequencyMeter.pioSigCountLSB -pg 1 -lvl 2 -y 600
 preplace inst FrequencyMeter -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst FrequencyMeter.pioPhaCountLSB -pg 1 -lvl 2 -y 200
+preplace inst FrequencyMeter.HSPLLGroup -pg 1 -lvl 2 -y 40
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.piosigcountlsb_external_connection,(SLAVE)pioSigCountLSB.external_connection) 1 0 2 NJ 630 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(MASTER)FrequencyMeter.hspllgroup_outclk3,(MASTER)HSPLLGroup.outclk3) 1 2 1 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)pioRefCountLSB.s1,(SLAVE)FrequencyMeter.piorefcountlsb_s1) 1 0 2 NJ 470 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.piorefcountlsb_external_connection,(SLAVE)pioRefCountLSB.external_connection) 1 0 2 NJ 430 NJ
+preplace netloc FAN_OUT<net_container>FrequencyMeter</net_container>(MASTER)clk_0.clk,(SLAVE)pioRefCountMSB.clk,(SLAVE)pioRefCountLSB.clk,(SLAVE)pioPhaCountLSB.clk,(SLAVE)pioSigCountMSB.clk,(SLAVE)pioSigCountLSB.clk,(SLAVE)pioPhaCountMSB.clk,(SLAVE)HSPLLGroup.refclk) 1 1 1 430
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.piophacountlsb_s1,(SLAVE)pioPhaCountLSB.s1) 1 0 2 NJ 270 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)pioSigCountMSB.external_connection,(SLAVE)FrequencyMeter.piosigcountmsb_external_connection) 1 0 2 NJ 730 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(MASTER)HSPLLGroup.outclk1,(MASTER)FrequencyMeter.hspllgroup_outclk1) 1 2 1 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)pioPhaCountMSB.s1,(SLAVE)FrequencyMeter.piophacountmsb_s1) 1 0 2 NJ 370 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.piophacountmsb_external_connection,(SLAVE)pioPhaCountMSB.external_connection) 1 0 2 NJ 330 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(MASTER)HSPLLGroup.outclk4,(MASTER)FrequencyMeter.hspllgroup_outclk4) 1 2 1 NJ
+preplace netloc FAN_OUT<net_container>FrequencyMeter</net_container>(MASTER)clk_0.clk_reset,(SLAVE)pioSigCountMSB.reset,(SLAVE)pioRefCountLSB.reset,(SLAVE)pioRefCountMSB.reset,(SLAVE)pioPhaCountMSB.reset,(SLAVE)HSPLLGroup.reset,(SLAVE)pioPhaCountLSB.reset,(SLAVE)pioSigCountLSB.reset) 1 1 1 410
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(MASTER)HSPLLGroup.outclk6,(MASTER)FrequencyMeter.hspllgroup_outclk6) 1 2 1 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(MASTER)HSPLLGroup.outclk2,(MASTER)FrequencyMeter.hspllgroup_outclk2) 1 2 1 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.piorefcountmsb_s1,(SLAVE)pioRefCountMSB.s1) 1 0 2 NJ 570 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)pioRefCountMSB.external_connection,(SLAVE)FrequencyMeter.piorefcountmsb_external_connection) 1 0 2 NJ 530 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.piosigcountlsb_s1,(SLAVE)pioSigCountLSB.s1) 1 0 2 NJ 670 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.piosigcountmsb_s1,(SLAVE)pioSigCountMSB.s1) 1 0 2 NJ 770 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)HSPLLGroup.locked,(SLAVE)FrequencyMeter.pll_0_locked) 1 0 2 NJ 40 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(MASTER)HSPLLGroup.outclk0,(MASTER)FrequencyMeter.hspllgroup_outclk0) 1 2 1 NJ
 preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(MASTER)FrequencyMeter.hspllgroup_outclk5,(MASTER)HSPLLGroup.outclk5) 1 2 1 NJ
 preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-levelinfo -pg 1 0 50 270
-levelinfo -hier FrequencyMeter 60 90 260
+preplace netloc EXPORT<net_container>FrequencyMeter</net_container>(SLAVE)FrequencyMeter.piophacountlsb_external_connection,(SLAVE)pioPhaCountLSB.external_connection) 1 0 2 NJ 230 NJ
+levelinfo -pg 1 0 200 770
+levelinfo -hier FrequencyMeter 210 240 480 630

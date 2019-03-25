@@ -11,7 +11,7 @@ always @ (posedge sysClk or  posedge sysRst) begin
         counter<=0;
     else begin
         counter<=counter+1;
-        if(counter==25000000)  begin
+        if(counter==15000000)  begin
             tikTok<=~tikTok;
             counter<=0;
         end

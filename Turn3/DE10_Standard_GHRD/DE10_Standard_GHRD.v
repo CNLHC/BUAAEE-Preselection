@@ -189,7 +189,7 @@ module DE10_Standard_GHRD(
   wire [27:0] stm_hw_events;
   wire        fpga_clk_50;
 // connection of internal logics
-  assign LEDR[9:1] = fpga_led_internal;
+  assign LEDR[9:5] = fpga_led_internal;
   assign stm_hw_events    = {{4{1'b0}}, SW, fpga_led_internal, fpga_debounced_buttons};
   assign fpga_clk_50=CLOCK_50;
 
@@ -294,7 +294,8 @@ soc_system u0 (
 			
 		  .led_pio_external_connection_export    ( fpga_led_internal ),               //                               led_pio_external_connection.export                     
         .dipsw_pio_external_connection_export  ( SW ),                 //                               dipsw_pio_external_connection.export
-        .button_pio_external_connection_export ( fpga_debounced_buttons ),              //                               button_pio_external_connection.export 
+        //.button_pio_external_connection_export ( fpga_debounced_buttons ),              //                               button_pio_external_connection.export 
+        .button_pio_external_connection_export (4'ha),              //                               button_pio_external_connection.export 
 		  .hps_0_h2f_reset_reset_n               ( hps_fpga_reset_n ),                //                hps_0_h2f_reset.reset_n
 		  .hps_0_f2h_cold_reset_req_reset_n      (~hps_cold_reset ),      //       hps_0_f2h_cold_reset_req.reset_n
 		  .hps_0_f2h_debug_reset_req_reset_n     (~hps_debug_reset ),     //      hps_0_f2h_debug_reset_req.reset_n
@@ -307,14 +308,21 @@ soc_system u0 (
       .frequencymeter_0_piorefcountlsb_external_connection_export(refCountLSB),
       .frequencymeter_0_piosigcountmsb_external_connection_export(sigCountMSB),
       .frequencymeter_0_piosigcountlsb_external_connection_export(sigCountLSB),
-      .frequencymeter_0_hspllgroup_outclk0_clk(PADPLL0),
-      .frequencymeter_0_hspllgroup_outclk1_clk(PADPLL1),
-      .frequencymeter_0_hspllgroup_outclk2_clk(PADPLL2),
-      .frequencymeter_0_hspllgroup_outclk3_clk(PADPLL3),
-      .frequencymeter_0_hspllgroup_outclk4_clk(PADPLL4),
-      .frequencymeter_0_hspllgroup_outclk5_clk(PADPLL5),
-      .frequencymeter_0_hspllgroup_outclk6_clk(PADPLL6),
-      .frequencymeter_0_pll_0_locked_export()
+      //.frequencymeter_0_hspllgroup_outclk0_clk(PADPLL0),
+      //.frequencymeter_0_hspllgroup_outclk1_clk(PADPLL1),
+      //.frequencymeter_0_hspllgroup_outclk2_clk(PADPLL2),
+      //.frequencymeter_0_hspllgroup_outclk3_clk(PADPLL3),
+      //.frequencymeter_0_hspllgroup_outclk4_clk(PADPLL4),
+      //.frequencymeter_0_hspllgroup_outclk5_clk(PADPLL5),
+      //.frequencymeter_0_hspllgroup_outclk6_clk(PADPLL6),
+      .signaltappll_outclk0_clk(signalTapClock),
+      .grouppll_outclk0_clk(PADPLL0)
+      //.grouppll_outclk1_clk(PADPLL1),
+      //.grouppll_outclk2_clk(PADPLL2),
+      //.grouppll_outclk3_clk(PADPLL3),
+      //.grouppll_outclk4_clk(PADPLL4),
+      //.grouppll_outclk5_clk(PADPLL5)
+      //.frequencymeter_0_pll_0_locked_export()
     );
 
 //=======================================================
@@ -323,23 +331,63 @@ soc_system u0 (
 
 
 wire PADPLL0;
-wire PADPLL1;
-wire PADPLL2;
-wire PADPLL3;
-wire PADPLL4;
-wire PADPLL5;
-wire PADPLL6;
-wire InputCHA;
-wire InputCHB;
+wire signalTapClock;
+reg InputCHA;
+reg InputCHB;
 wire realTimeTikTok;
 wire VHSClock;
 wire globalReset;
 wire [31:0]refCountMSB;
+wire [31:0]TestrefCountMSB;
 wire [31:0]refCountLSB;
 wire [31:0]sigCountMSB;
 wire [31:0]sigCountLSB;
 wire [31:0]diffCountMSB;
 wire [31:0]diffCountLSB;
+reg [1:0]modeFSM;
+reg [63:0] testSourceCounter;
+reg testSource;
+assign  GPIO[2]=testSource;
+
+always @(posedge CLOCK_50 or posedge globalReset) begin
+    if(globalReset)
+        testSourceCounter<=0;
+    else begin
+        if(testSourceCounter==1)begin
+            testSourceCounter<=0;
+            testSource<=~testSource;
+        end
+        else begin
+        testSourceCounter<=testSourceCounter+1;
+        end
+    end
+end
+assign globalReset=~KEY[2];
+
+always @(posedge KEY[3]) begin
+    case (modeFSM)
+        0:modeFSM=1;
+        1:modeFSM=0;
+        default: modeFSM=0;
+    endcase
+end
+always @(*) begin
+    case (modeFSM)
+        0: begin
+            InputCHA=GPIO[0];
+            InputCHB=GPIO[1];
+        end
+        1: begin
+            InputCHA=GPIO[0];
+            InputCHB=~GPIO[0];
+        end
+        default:begin
+            InputCHA=GPIO[0];
+            InputCHB=GPIO[1];
+        end
+    endcase
+end
+
 
 FrequencyMeter UFM1(
     .signal(InputCHA),
@@ -357,24 +405,28 @@ RealTimeClockGenerator URTCG1(
 );
 
 PhaseDetector UPD1(
-    .workClk(VHSClock),
+    .workClk(PADPLL0),
     .sysClk(CLOCK_50),
     .sysRst(globalReset),
+    
     .CHA(InputCHA),
     .CHB(InputCHB),
     .diffCounter({diffCountMSB,diffCountLSB})
 );
 
-HighSpeedClockGenerator UHSCG1(
-      .PLL0(PADPLL0),
-      .PLL1(PADPLL1),
-      .PLL2(PADPLL2),
-      .PLL3(PADPLL3),
-      .PLL4(PADPLL4),
-      .PLL5(PADPLL5),
-      .PLL6(PADPLL6),
-      .HighSpeedClock(VHSClock)
-);
+//HighSpeedClockGenerator UHSCG1(
+//      .PLL0(PADPLL0),
+//      .PLL1(PADPLL1),
+//      .PLL2(PADPLL2),
+//      .PLL3(PADPLL3),
+//      .PLL4(PADPLL4),
+//      .PLL5(PADPLL5),
+//      .PLL6(PADPLL6),
+//      .HighSpeedClock(VHSClock)
+//);
+
+
+
 
 
 // Debounce logic to clean out glitches within 1ms
@@ -446,6 +498,9 @@ else
                 counter<=counter+1'b1;
 end
 
-assign LEDR[0]=led_level;
+assign LEDR[1:0]=modeFSM;
+assign LEDR[2]=led_level;
+assign LEDR[3]=realTimeTikTok;
+assign LEDR[4]=KEY[2];
 endmodule
 
