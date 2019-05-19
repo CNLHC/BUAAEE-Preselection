@@ -1,18 +1,12 @@
-/*
-        Simple example to open a maximum of 4 devices - write some data then
-   read it back. Shows one method of using list devices also. Assumes the
-   devices have a loopback connector on them and they also have a serial number
-
-        To build use the following gcc statement
-        (assuming you have the d2xx library in the /usr/local/lib directory).
-        gcc -o simple main.c -L. -lftd2xx -Wl,-rpath /usr/local/lib
-*/
-
+#include "AD7606Driver.h"
 #include "AD9910Driver.h"
+#include "FTD2xxBitMode.h"
 #include "ftd2xx.h"
 #include "ftd4232driver.h"
+#include <DAC8563Driver.h>
 #include <chrono>
 #include <libMPSSE_spi.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,41 +22,80 @@ auto CheckStatus = [](FT_STATUS ft, const char *s) {
 int main() {
   Init_libMPSSE();
   FTD4232driver tFTD;
-  //  tFTD.listAllDevices();
+  tFTD.listAllDevices();
   //  tFTD.listSPIDevices();
   FT_HANDLE spiHandle;
   FT_HANDLE GPIOHandle;
+  FT_HANDLE UartHandle;
+
   FT_STATUS ftStatus;
-  ftStatus = FT_Open(1, &GPIOHandle);
+
+  ftStatus = FT_Open(3, &GPIOHandle);
   CheckStatus(ftStatus, "GPIO Port Open");
+  ftStatus = FT_Open(1, &UartHandle);
+  CheckStatus(ftStatus, "Uart Port Open");
+  FT_SetBaudRate(UartHandle,115200);
+  FT_SetDataCharacteristics(UartHandle,FT_BITS_8,FT_STOP_BITS_1,FT_PARITY_NONE);
+
+
   ftStatus = SPI_OpenChannel(0, &spiHandle);
   CheckStatus(ftStatus, "SPI Port Open");
 
-  ftStatus = FT_SetBitMode(GPIOHandle, 0xff, FT_BITMODE_SYNC_BITBANG);
+  ftStatus = FT_SetBitMode(GPIOHandle, 0xff, FT_BITMODE_ASYNC_BITBANG);
   CheckStatus(ftStatus, "GPIO Init");
 
   ChannelConfig spiConf;
-  spiConf.ClockRate = 50000;
-  spiConf.configOptions = SPI_CONFIG_OPTION_MODE0 | SPI_CONFIG_OPTION_CS_DBUS3 |
+  spiConf.ClockRate = 150000;
+  spiConf.configOptions = SPI_CONFIG_OPTION_MODE2 | SPI_CONFIG_OPTION_CS_DBUS5 |
                           SPI_CONFIG_OPTION_CS_ACTIVELOW;
-  spiConf.LatencyTimer = 2;
+  spiConf.LatencyTimer = 0;
   spiConf.Pin = 0;
   ftStatus = SPI_InitChannel(spiHandle, &spiConf);
   CheckStatus(ftStatus, "SPI Init");
 
-  auto h9910 = AD9910Driver(spiHandle, GPIOHandle);
+  auto h9910 =
+      AD9910Driver(spiHandle, GPIOHandle, 4,
+                   SPI_CONFIG_OPTION_MODE0 | SPI_CONFIG_OPTION_CS_DBUS3 |
+                       SPI_CONFIG_OPTION_CS_ACTIVELOW);
+  auto h7606 =
+      AD7606Driver(spiHandle, GPIOHandle,
+                   SPI_CONFIG_OPTION_MODE0 | SPI_CONFIG_OPTION_CS_DBUS4 |
+                       SPI_CONFIG_OPTION_CS_ACTIVELOW,
+                   6, 7);
+  auto h8563 =
+      DAC8563Driver(spiHandle, GPIOHandle,
+                    SPI_CONFIG_OPTION_MODE2 | SPI_CONFIG_OPTION_CS_DBUS5 |
+                        SPI_CONFIG_OPTION_CS_ACTIVELOW);
 
-  uint8 test[4] = {0, 0x40, 0x00, 0x02};
-  h9910.WriteRegister(0x00, 4, test);
+//  auto a = h7606.ReadAllChannels();
+//  for (auto &i :a)
+//    printf("%d\n", i);
+//  h8563.Init();
+//  while(1){
+//    h8563.setDualChannelValue(4.33);
+//  }
 
-  uint8 test3[4] = {0x05, 0x0f, 0x41, 0x32};
-  h9910.WriteRegister(0x02, 4, test3);
+//  h9910.Init();
+//  h9910.setSingleTuneOutput(0x3FFF,12345678);
 
-  uint8 test4[8] = {0x3f, 0xff, 0xff, 0x00, 0x0a, 0x3d, 0x70, 0xa4};
-  h9910.WriteRegister(0x0e, 8, test4);
+  uint8 buffer[1000];
+  float voltage;
+  uint16  data;
+  for(int i=0;i<500;++i){
+    voltage=i*20.0/500.0-10.0;
+    data = (unsigned)((voltage+10.0)*0xffff/20.0);
+    buffer[2*i]=(uint8)(data>>8);
+    buffer[2*i+1]=(uint8)data;
+  }
+  uint32 dummy;
+  while(1){
+    FT_Write(UartHandle,buffer,1000,&dummy);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  }
 
-  uint8 db[4];
-  h9910.ReadRegister(0x02, 4, db);
-  for (auto &i : db)
-    printf("0x%x\n", i);
+
+
+
+
+
 }
