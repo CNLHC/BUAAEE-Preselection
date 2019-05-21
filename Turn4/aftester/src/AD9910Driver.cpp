@@ -96,3 +96,14 @@ void AD9910Driver::setSingleTuneOutput(uint16 amp, double Freq) {
 }
 
 
+void AD9910Driver::linearFreqSweep(double Start, double Stop, double seconds) {
+    if(Stop<Start)
+        return;
+    uint64  tTimeStep = (seconds*1000000)/100.0;
+    double tFreqStep = (Stop-Start)/100.0;
+    for(int i=0;i<=100;i++){
+        setSingleTuneOutput(0x3FFF,Start+tFreqStep*i);
+        std::this_thread::sleep_for(std::chrono::microseconds(tTimeStep));
+    }
+}
+

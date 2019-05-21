@@ -23,7 +23,7 @@ int main() {
   Init_libMPSSE();
   FTD4232driver tFTD;
   tFTD.listAllDevices();
-  //  tFTD.listSPIDevices();
+  tFTD.listSPIDevices();
   FT_HANDLE spiHandle;
   FT_HANDLE GPIOHandle;
   FT_HANDLE UartHandle;
@@ -75,27 +75,28 @@ int main() {
 //    h8563.setDualChannelValue(4.33);
 //  }
 
-//  h9910.Init();
-//  h9910.setSingleTuneOutput(0x3FFF,12345678);
-
-  uint8 buffer[1000];
-  float voltage;
-  uint16  data;
-  for(int i=0;i<500;++i){
-    voltage=i*20.0/500.0-10.0;
-    data = (unsigned)((voltage+10.0)*0xffff/20.0);
-    buffer[2*i]=(uint8)(data>>8);
-    buffer[2*i+1]=(uint8)data;
-  }
-  uint32 dummy;
-  while(1){
-    FT_Write(UartHandle,buffer,1000,&dummy);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-  }
+  h9910.Init();
+  h9910.setSingleTuneOutput(0x3FFF,20000000);
+//while (1){
+//    h9910.linearFreqSweep(1000000,40000000,5);
+//    std::this_thread::sleep_for(std::chrono::seconds(1));
+//}
 
 
 
 
-
-
+//  uint8 buffer[1000];
+//  float voltage;
+//  uint16  data;
+//  for(int i=0;i<500;++i){
+//    voltage=i*20.0/500.0-10.0;
+//    data = (unsigned)((voltage+10.0)*0xffff/20.0);
+//    buffer[2*i]=(uint8)(data>>8);
+//    buffer[2*i+1]=(uint8)data;
+//  }
+//  uint32 dummy;
+//  while(1){
+//    FT_Write(UartHandle,buffer,1000,&dummy);
+//    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+//  }
 }

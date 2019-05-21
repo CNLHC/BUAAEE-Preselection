@@ -2,57 +2,21 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="VirtualBox (128018b4-f775-48d8-97e0-7da83e7f4834)">
+      <paths name="Remote Host (3c4aafac-3772-4ef6-b5d3-23392abea0ae)">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/tmp.yOngvyWsBc" local="$PROJECT_DIR$" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="VirtualBox (67f4f395-d773-46f3-84f8-dbbb48dd163e)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.oTqmYbflSd" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
           </excludedPaths>
-        </serverdata>
-      </paths>
-      <paths name="WSL (4871cb83-c7cb-46d8-8413-72f6b3c44f38)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSL (85a0b570-8782-4698-8d6b-05dd9d7fbf8e)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSL (acbc423c-14fc-45d9-9905-e88b789990b6)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSL (c2c1fe14-827b-4a03-9ea0-1a176df40a0c)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSL (e8fa403a-f672-46de-9b5a-2be5fde2fb6a)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSL (fe3d3021-2474-494c-a1d9-922cb04cb793)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
         </serverdata>
       </paths>
     </serverData>

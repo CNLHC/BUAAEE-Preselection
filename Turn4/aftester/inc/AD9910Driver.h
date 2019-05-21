@@ -15,6 +15,7 @@ public:
   bool ReadRegister(uint8 address, uint8 length, uint8 *buf);
   void Init();
   void setSingleTuneOutput(uint16 amp,double Freq);
+  void linearFreqSweep(double Start, double Stop, double seconds);
 
 private:
   void pIOUSet();
